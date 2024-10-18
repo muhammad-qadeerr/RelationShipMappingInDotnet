@@ -1,0 +1,31 @@
+CREATE TABLE Customer (
+    Id INT IDENTITY(1,1) NOT NULL,
+    FirstName VARCHAR(100),
+    LastName VARCHAR(100),
+    Phone VARCHAR(10),
+    CONSTRAINT PK_Customer PRIMARY KEY (Id)
+);
+
+CREATE TABLE CustomerAddresses (
+    Id INT IDENTITY(1,1) NOT NULL,
+    City VARCHAR(100),
+    Country VARCHAR(100),
+    CustomerId INT,
+    CONSTRAINT PK_Customer_Addresses PRIMARY KEY (Id),
+    CONSTRAINT FK_Customer_Addresses_CustomerId FOREIGN KEY (CustomerId) REFERENCES Customer(Id)
+);
+
+select * from Customer
+
+select * from CustomerAddresses
+
+INSERT INTO Customer
+VALUES ('John', 'Doe', '1234567890');
+
+INSERT INTO CustomerAddresses
+VALUES ('London', 'UK', 1);
+
+INSERT INTO CustomerAddresses
+VALUES ('Sialkot', 'Pak', 1);
+
+UPDATE CustomerAddresses SET Country = 'PAK' WHERE Id = 2

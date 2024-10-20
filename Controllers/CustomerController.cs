@@ -70,4 +70,14 @@ public class CustomerController : ControllerBase
         await _appDbContext.SaveChangesAsync();
         return Created($"/customer/{newCustomer.Id}", newCustomer);
     }
+    
+     // PUT Endpoint Action Methods
+    [HttpPut]
+    public async Task<IActionResult> UpdateCustomer(CustomerDto customerPayload)
+    {
+        var updatedCustomer = _mapper.Map<Customer>(customerPayload);
+        _appDbContext.Customer.Update(updatedCustomer);
+        await _appDbContext.SaveChangesAsync();
+        return Ok(updatedCustomer);
+    }
 }

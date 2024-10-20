@@ -5,6 +5,8 @@ E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\DotnetRelations.deps.json
 E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\DotnetRelations.runtimeconfig.json
 E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\DotnetRelations.dll
 E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\DotnetRelations.pdb
+E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\AutoMapper.dll
+E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\Azure.Core.dll
 E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\Azure.Identity.dll
 E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
@@ -80,5 +82,3 @@ E:\Dotnet Projects\DotnetRelations\obj\Debug\net8.0\refint\DotnetRelations.dll
 E:\Dotnet Projects\DotnetRelations\obj\Debug\net8.0\DotnetRelations.pdb
 E:\Dotnet Projects\DotnetRelations\obj\Debug\net8.0\DotnetRelations.genruntimeconfig.cache
 E:\Dotnet Projects\DotnetRelations\obj\Debug\net8.0\ref\DotnetRelations.dll
-E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\AutoMapper.dll
-E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

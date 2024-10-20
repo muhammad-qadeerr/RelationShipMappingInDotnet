@@ -30,7 +30,7 @@ public class CustomerController : ControllerBase
     }
 
     [HttpGet]
-    [Route("{id}")]
+    [Route("{id:int}")]
     public async Task<IActionResult> GetCustomerById(int id)
     {
         var customers = await _appDbContext.Customer
@@ -79,5 +79,22 @@ public class CustomerController : ControllerBase
         _appDbContext.Customer.Update(updatedCustomer);
         await _appDbContext.SaveChangesAsync();
         return Ok(updatedCustomer);
+    }
+
+    [HttpDelete]
+    [Route("{id:int}")]
+     public async Task<IActionResult> DeleteCustomer(int id)
+    {
+        var customerToDelete = await _appDbContext
+         .Customer.Include(_ => _.CustomerAddresses)
+         .Where(_ => _.Id == id)
+         .FirstOrDefaultAsync();
+        if(customerToDelete == null)
+        {
+            return NotFound();
+        }
+        _appDbContext.Customer.Remove(customerToDelete);
+        await _appDbContext.SaveChangesAsync();
+        return NoContent();
     }
 }

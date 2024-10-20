@@ -73,13 +73,26 @@ public class CustomerController : ControllerBase
     
      // PUT Endpoint Action Methods
     [HttpPut]
-    public async Task<IActionResult> UpdateCustomer(CustomerDto customerPayload)
+    [Route("{id:int}")]
+    public async Task<IActionResult> UpdateCustomer(int id, CustomerDto customerPayload)
     {
-        var updatedCustomer = _mapper.Map<Customer>(customerPayload);
-        _appDbContext.Customer.Update(updatedCustomer);
+        var customerToUpdate = await _appDbContext
+            .Customer.Include(_ => _.CustomerAddresses)
+            .Where(_ => _.Id == id)
+            .FirstOrDefaultAsync();
+
+        if (customerToUpdate == null)
+        {
+            return NotFound();
+        }
+        _mapper.Map(customerPayload, customerToUpdate);
+        customerToUpdate.Id = id;
+        _appDbContext.Customer.Update(customerToUpdate);
         await _appDbContext.SaveChangesAsync();
-        return Ok(updatedCustomer);
+
+        return Ok(customerToUpdate);
     }
+
 
     [HttpDelete]
     [Route("{id:int}")]

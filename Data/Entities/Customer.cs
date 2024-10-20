@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace DOTNETRELATIONS.Data.Entities;
 
 public class Customer
@@ -10,6 +8,6 @@ public class Customer
     public string? Phone { get; set; }
 
     // Navigation Property to define 1:M relationship i.e 1 Customer Many CustomerAddresses
-    public List<CustomerAddresses> CustomerAddresses { get; set; }
+    public List<CustomerAddresses>? CustomerAddresses { get; set; }
 }
 

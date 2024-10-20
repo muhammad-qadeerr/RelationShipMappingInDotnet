@@ -8,7 +8,7 @@ public class CustomerAddresses
     public int CustomerId { get; set; }
 
     // Navigation Property for 1:1 relationship i.e 1 CustomerAddresses will belong to 1 Customer.
-    public Customer Customer { get; set; }
+    public Customer? Customer { get; set; }
 
 
 }

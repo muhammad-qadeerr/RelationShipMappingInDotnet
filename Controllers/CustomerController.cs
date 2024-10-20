@@ -18,7 +18,6 @@ public class CustomerController : ControllerBase
 
     // GET Endpoint Action Methods
     [HttpGet]
-    //[Route("Customer", Name = "GetAllCustomers")]
     public async Task<IActionResult> GetAllCustomers()
     {
         var customers = await _appDbContext.Customer
@@ -40,12 +39,14 @@ public class CustomerController : ControllerBase
 
     private Customer MapCustomer(CustomerDto payload)
     {
-        var result = new Customer();
-        result.FirstName = payload.FirstName;
-        result.LastName = payload.LastName;
-        result.Phone = payload.Phone;
-        result.CustomerAddresses = new List<CustomerAddresses>();
-        payload.CustomerAddresses.ForEach(_ => {
+        var result = new Customer
+        {
+            FirstName = payload.FirstName,
+            LastName = payload.LastName,
+            Phone = payload.Phone,
+            CustomerAddresses = new List<CustomerAddresses>()
+        };
+        payload.CustomerAddresses?.ForEach(_ => {
             var newAddress = new CustomerAddresses();
             newAddress.City = _.City;
             newAddress.Country = _.Country;
@@ -53,6 +54,7 @@ public class CustomerController : ControllerBase
         });
         return result;
     }
+     // POST Endpoint Action Methods
     [HttpPost]
     public async Task<IActionResult> AddCustomer(CustomerDto customerPayload)
     {

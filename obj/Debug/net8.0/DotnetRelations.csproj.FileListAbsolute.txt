@@ -80,3 +80,5 @@ E:\Dotnet Projects\DotnetRelations\obj\Debug\net8.0\refint\DotnetRelations.dll
 E:\Dotnet Projects\DotnetRelations\obj\Debug\net8.0\DotnetRelations.pdb
 E:\Dotnet Projects\DotnetRelations\obj\Debug\net8.0\DotnetRelations.genruntimeconfig.cache
 E:\Dotnet Projects\DotnetRelations\obj\Debug\net8.0\ref\DotnetRelations.dll
+E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\AutoMapper.dll
+E:\Dotnet Projects\DotnetRelations\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

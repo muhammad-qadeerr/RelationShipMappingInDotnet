@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "FFFdXwVPj2s=",
+  "dgSpecHash": "FTvZvN8VjcE=",
   "success": true,
   "projectFilePath": "E:\\Dotnet Projects\\DotnetRelations\\DotnetRelations.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\SS\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\SS\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\SS\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\SS\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\SS\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.10\\microsoft.aspnetcore.jsonpatch.8.0.10.nupkg.sha512",

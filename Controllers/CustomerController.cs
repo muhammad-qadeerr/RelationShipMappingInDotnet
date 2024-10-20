@@ -1,3 +1,4 @@
+using AutoMapper;
 using DOTNETRELATIONS.Data.Entities;
 using DOTNETRELATIONS.DTOs;
 using Microsoft.AspNetCore.Mvc;
@@ -10,9 +11,11 @@ namespace DOTNETRELATIONS.Controllers;
 public class CustomerController : ControllerBase
 { 
     private readonly AppDbContext _appDbContext;
-    public CustomerController(AppDbContext appDbContext)
+    private readonly IMapper _mapper;
+    public CustomerController(AppDbContext appDbContext, IMapper mapper)
     {
         _appDbContext = appDbContext;
+        _mapper = mapper;
 
     }
 
@@ -37,7 +40,9 @@ public class CustomerController : ControllerBase
         return Ok(customers);
     }
 
-    private Customer MapCustomer(CustomerDto payload)
+    // Manual Mapper for mapping data to avoid cyclic references for entities using DTOs.
+    // Commenting this method as now we have configured an auto-mapper.
+    /*private Customer MapCustomer(CustomerDto payload)
     {
         var result = new Customer
         {
@@ -53,12 +58,14 @@ public class CustomerController : ControllerBase
             result.CustomerAddresses.Add(newAddress);
         });
         return result;
-    }
-     // POST Endpoint Action Methods
+    }*/
+
+    // POST Endpoint Action Methods
     [HttpPost]
     public async Task<IActionResult> AddCustomer(CustomerDto customerPayload)
     {
-        var newCustomer = MapCustomer(customerPayload);
+        //var newCustomer = MapCustomer(customerPayload);
+        var newCustomer = _mapper.Map<Customer>(customerPayload);
         await _appDbContext.Customer.AddAsync(newCustomer);
         await _appDbContext.SaveChangesAsync();
         return Created($"/customer/{newCustomer.Id}", newCustomer);
